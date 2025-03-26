@@ -76,11 +76,16 @@ public class App {
             while (!guess.equals("q")) {
                 System.out.println("You've guessed '" + guess+"'.");
 
+                if (guess.matches("^[a-zA-Z]{4}$")) {
+
                 if (wordleDatabaseConnection.isValidWord(guess)) { 
                     System.out.println("Success! It is in the the list.\n");
                 }else{
                     System.out.println("Sorry. This word is NOT in the the list.\n");
                 }
+            } else {
+                System.out.println("Invalid input. Please enter exactly 4 letters (A-Z).");
+            }
 
                 System.out.print("Enter a 4 letter word for a guess or q to quit: " );
                 guess = scanner.nextLine();
